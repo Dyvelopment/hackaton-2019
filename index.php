@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="css/main.css"/>
+
 <?php
 	include "sy/db.php";
 	session_start();
