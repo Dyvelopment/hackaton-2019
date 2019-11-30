@@ -1,9 +1,9 @@
 <?php
 	if(isset($_POST["loginn"])){
 		$i = trylogin($_POST["user"],$_POST["password"]);
-		if($i != "error"){
-			$_SESSION["login"] = $_POST["user"];
-			$_SESSION["id"] = $i;
+		if(trylogin != "error"){
+			$_SESSION["login"] = $i['nome_usu'];
+			$_SESSION["id"] = $i['id_usuario'];
 			header("Location: .");
 			die();
 		} else $x=1;
