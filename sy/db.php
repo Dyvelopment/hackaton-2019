@@ -75,4 +75,27 @@
 			return "error";
 		}
 	}
+	
+	function cadastroProduto($nome, $valor, $quantidade, $tipo, $caracteristica, $descricao){
+		$con = db_connect();
+		$sql = "SELECT id_pro FROM produto WHERE nome_pro = :nome";
+		$stmt = $con->prepare($sql);
+		$stmt->bindValue(':nome', $nome);
+		$stmt->execute();
+		$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		if (count($users) == 0){
+		$sql = "INSERT INTO produto(nome_pro, valor_pro, qtd_pro, tipo_pro, carc_pro, desc_pro) VALUES(:nome, :valor, :qtd, :tipo, :carc, :desc)";
+		$stmt = $con->prepare( $sql );
+		$stmt->bindParam( ':nome', $nome );
+		$stmt->bindParam( ':valor', $valor );
+		$stmt->bindParam( ':qtd', $quantidade );
+		$stmt->bindParam( ':tipo', $tipo );
+		$stmt->bindParam( ':carc', $caracteristica );
+		$stmt->bindParam( ':desc', $descricao );
+		$stmt->execute();
+		return "cadastrado";
+		} else {
+			return "error";
+		}
+	}
 ?>

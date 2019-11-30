@@ -5,7 +5,7 @@ if(getCargo($_SESSION["id"])!="admin" && getCargo($_SESSION["id"])!="gerente"){
 	die();
 }
 if(isset($_POST['cadastrar'])){
-	$i = cadastroUsuario($_POST["nome"], $_POST["valor"], $_POST["quantidade"], $_POST["tipo"], $_POST["caracteristica"], $_POST["descricao"]);
+	$i = cadastroProduto($_POST["nome"], $_POST["valor"], $_POST["quantidade"], $_POST["tipo"], $_POST["caracteristica"], $_POST["descricao"]);
 		if($i != "error"){
 			echo "<script>alert('Produto não cadastrado!')</script>";
 			header("Location: .");

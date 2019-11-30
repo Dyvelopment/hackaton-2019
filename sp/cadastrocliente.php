@@ -5,7 +5,7 @@ if(getCargo($_SESSION["id"])!="admin" && getCargo($_SESSION["id"])!="gerente"){
 	die();
 }
 if(isset($_POST['cadastrar'])){
-	$i = cadastroUsuario($_POST["nome"], $_POST["endereco"], $_POST["complemento"], $_POST["tipo"], $_POST["cad"], $_POST["contato"]);
+	$i = cadastroCliente($_POST["nome"], $_POST["endereco"], $_POST["complemento"], $_POST["tipo"], $_POST["cad"], $_POST["contato"]);
 		if($i != "error"){
 			echo "<script>alert('Cliente cadastrado!')</script>";
 			header("Location: .");
