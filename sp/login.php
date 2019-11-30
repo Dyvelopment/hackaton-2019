@@ -1,7 +1,7 @@
 <?php
 	if(isset($_POST["loginn"])){
 		$i = trylogin($_POST["user"],$_POST["password"]);
-		if(trylogin != "error"){
+		if($i != "error"){
 			$_SESSION["login"] = $i['nome_usu'];
 			$_SESSION["id"] = $i['id_usuario'];
 			header("Location: .");
@@ -16,7 +16,7 @@
 	<div class="setar">
 		<form action='' method='POST'><center>
 			<input type='text' name='user'><br>
-			<input type='text' name='password'><br>
+			<input type='password' name='password'><br>
 			<input type='submit' name='loginn'><center>
 		</form>
 	</div>
