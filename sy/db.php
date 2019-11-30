@@ -76,6 +76,24 @@
 		}
 	}
 	
+	function cadastroCarga($local, $distancia, $status, $produto, $valor, $coordenada){
+		$con = db_connect();
+		$sql = "INSERT INTO carga(local_carga, distancia_carga, status_carga, prod_carga, valor_carga, cord_destino, cord_carga) VALUES(:local, :distancia, :status, :produto, :valor, :coordenada, :atual)";
+		
+		$stmt = $con->prepare( $sql );
+		$stmt->bindParam( ':local', $local );
+		$stmt->bindParam( ':distancia', $distancia );
+		$stmt->bindParam( ':status', $status );
+		$stmt->bindParam( ':produto', $produto );
+		$stmt->bindParam( ':valor', $valor );
+		$stmt->bindParam( ':coordenada', $coordenada );
+		$stmt->bindParam( ':atual', "" );
+		
+		$stmt->execute();
+
+		return "eee";
+	}
+	
 	function cadastroProduto($nome, $valor, $quantidade, $tipo, $caracteristica, $descricao){
 		$con = db_connect();
 		$sql = "SELECT id_pro FROM produto WHERE nome_pro = :nome";
