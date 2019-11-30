@@ -61,7 +61,7 @@
 	  <form>
         <div id='success'></div>
           <div class='form-group'>
-          <a href='index.php?p=map'><button type='button' class='btn btn-primary btn-xl' id='sendMessageButton'>Ver Mapa</button></a>
+          <a href='index.php?p=map'><button type='button' class='btn btn-primary btn-xl' id='sendMessageButton'>Ver Rota Atual (Mapa)</button></a>
         </div>
       </form>
       <form>
