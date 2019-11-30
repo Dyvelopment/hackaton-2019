@@ -3,6 +3,7 @@
 ?>
 <title>Sistema</title>
 <?php
-if(getCargo($_SESSION["id"])=="admin") echo "<a href='index.php?p=cadastro'><button>Cadastro</button></a>"
+if(getCargo($_SESSION["id"])=="admin") echo "<a href='index.php?p=cadastro'><button>Cadastro</button></a>";
+if(getCargo($_SESSION["id"])=="admin" || getCargo($_SESSION["id"])=="gerente") echo "<a href='index.php?p=cadastroc'><button>Cadastro Cliente</button></a>";
 ?>
 <a href="index.php?p=logout"><button>Logout</button></a>

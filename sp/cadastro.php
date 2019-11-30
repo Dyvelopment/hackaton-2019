@@ -19,14 +19,14 @@ if(isset($_POST['cadastrar'])){
 <body>
 	<div class="setar">
 		<form action='' method='POST'><center>
-			Usuário: <br><input type='text' name='user'><br>
-			Senha: <br><input type='password' name='password'><br>
-			Nome: <br><input type='text' name='nome'><br>
-			Cargo: <br><input type='text' name='cargo'><br>
-			CPF: <br><input type='text' name='cpf'><br>
-			CNH: <br><input type='text' name='cnh'><br>
-			Contato: <br><input type='text' name='contato'><br>
-			Endereço: <br><input type='text' name='endereco'><br>
+			Usuário: <br><input type='text' name='user' required><br>
+			Senha: <br><input type='password' name='password' required><br>
+			Nome: <br><input type='text' name='nome' required><br>
+			Cargo: <br><input type='text' name='cargo' required><br>
+			CPF: <br><input type='text' name='cpf' required><br>
+			CNH: <br><input type='text' name='cnh' required><br>
+			Contato: <br><input type='text' name='contato' required><br>
+			Endereço: <br><input type='text' name='endereco' required><br>
 			<br><input type='submit' name='cadastrar'><center>
 		</form>
 	</div>

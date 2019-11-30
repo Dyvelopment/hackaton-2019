@@ -42,9 +42,33 @@
 		$stmt->bindParam( ':nome', $nome );
 		$stmt->bindParam( ':cargo', $cargo );
 		$stmt->bindParam( ':cpf', $cpf );
-		$stmt->bindParam( ':cnh', $cnd );
+		$stmt->bindParam( ':cnh', $cnh );
 		$stmt->bindParam( ':contato', $contato );
 		$stmt->bindParam( ':endereco', $endereco );
+		$stmt->execute();
+		return "cadastrado";
+		} else {
+			return "error";
+		}
+	}
+	
+	function cadastroCliente($nome, $endereco, $complemento, $tipo, $cad, $contato){
+		$con = db_connect();
+		$sql = "SELECT id_cli FROM cliente WHERE nome_cli = :nome";
+		$stmt = $con->prepare($sql);
+		$stmt->bindValue(':nome', $nome);
+		$stmt->execute();
+		$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		if (count($users) == 0){
+		$sql = "INSERT INTO cliente(nome_cli, data_cli, endereco_cli, complemento_cli, tipo_cli, cad_cli, contato_cli) VALUES(:nome, :data, :endereco, :complemento, :tipo, :cad, :contato)";
+		$stmt = $con->prepare( $sql );
+		$stmt->bindParam( ':nome', $nome );
+		$stmt->bindParam( ':data', date('m/d/Y h:i:s a', time()));
+		$stmt->bindParam( ':endereco', $endereco );
+		$stmt->bindParam( ':complemento', $complemento );
+		$stmt->bindParam( ':tipo', $tipo );
+		$stmt->bindParam( ':cad', $cad );
+		$stmt->bindParam( ':contato', $contato );
 		$stmt->execute();
 		return "cadastrado";
 		} else {
