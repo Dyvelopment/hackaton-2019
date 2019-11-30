@@ -10,6 +10,7 @@
 				case "logout": include "sp/logout.php"; break;
 				case "cadastro": include "sp/cadastro.php"; break;
 				case "cadastroc": include "sp/cadastrocliente.php"; break;
+				case "cadastrop": include "sp/cadastroproduto.php"; break;
 				default: include "sp/home.php"; break;
 			}
 		} else include "sp/home.php";

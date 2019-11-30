@@ -23,11 +23,12 @@ if(isset($_POST['cadastrar'])){
 			Senha: <br><input type='password' name='password' required><br>
 			Nome: <br><input type='text' name='nome' required><br>
 			Cargo: <br><input type='text' name='cargo' required><br>
-			CPF: <br><input type='text' name='cpf' required><br>
-			CNH: <br><input type='text' name='cnh' required><br>
-			Contato: <br><input type='text' name='contato' required><br>
+			CPF: <br><input type='number' name='cpf' required><br>
+			CNH: <br><input type='number' name='cnh' required><br>
+			Contato: <br><input type='number' name='contato' required><br>
 			Endereço: <br><input type='text' name='endereco' required><br>
 			<br><input type='submit' name='cadastrar'><center>
+			<br><a href='index.php'><input type='button' name='volt' value="Voltar"></a><center>
 		</form>
 	</div>
 </body>

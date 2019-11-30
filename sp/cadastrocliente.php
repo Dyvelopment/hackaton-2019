@@ -22,13 +22,14 @@ if(isset($_POST['cadastrar'])){
 			Nome: <br><input type='text' name='nome' required><br>
 			Endereço: <br><input type='text' name='endereco' required><br>
 			Complemento: <br><input type='text' name='complemento' required><br>
-			Contato: <br><input type='text' name='contato' required><br>
+			Contato: <br><input type='number' name='contato' required><br>
 			Pessoa:<br><select name='tipo' required>
 				<option value='fisica' selected>Fisica</option>
 				<option value='juridica'>Juridica</option>
 			</select><br>
-			CPF/CNPJ: <br><input type='text' name='cad' required><br>
+			CPF/CNPJ: <br><input type='number' name='cad' required><br>
 			<br><input type='submit' name='cadastrar'><center>
+			<br><a href='index.php'><input type='button' name='volt' value="Voltar"></a><center>
 		</form>
 	</div>
 </body>
