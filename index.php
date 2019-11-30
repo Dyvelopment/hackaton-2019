@@ -1,5 +1,6 @@
-<link rel="stylesheet" type="text/css" href="css/main.css"/>
-
+<head>
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	<meta charset="UTF-8"/>
 <?php
 	include "sy/db.php";
 	session_start();

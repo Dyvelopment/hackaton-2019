@@ -10,13 +10,14 @@
 	} else $x=0;
 	if($x==1) echo "<script>alert('Usuário e/ou senha invalidos!')</script>";
 ?>
-<title>Login</title>
-<center>
-	<div class="divi">
-		<form action='' method='POST'>
-			<input type='text' name='user'>
-			<input type='text' name='password'>
-			<input type='submit' name='loginn'>
+	<title>Login</title>
+</head>
+<body>
+	<div class="setar">
+		<form action='' method='POST'><center>
+			<input type='text' name='user'><br>
+			<input type='text' name='password'><br>
+			<input type='submit' name='loginn'><center>
 		</form>
 	</div>
-</center>
+</body>
