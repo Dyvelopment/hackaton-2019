@@ -23,7 +23,6 @@
       <h1 class="masthead-heading text-uppercase mb-0">Seleção</h1><br><br>
 		
 		<?php
-		echo "<script>alert('".$_SESSION["id"]."')</script>";
 		if(getCargo($_SESSION["id"])=="admin") echo "
 		<form>
         <div id='success'></div>
