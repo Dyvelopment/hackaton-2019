@@ -11,6 +11,7 @@
 				case "cadastro": include "sp/cadastro.php"; break;
 				case "cadastroc": include "sp/cadastrocliente.php"; break;
 				case "cadastrop": include "sp/cadastroproduto.php"; break;
+				case "carregar": include "sp/carregar.php"; break;
 				default: include "sp/home.php"; break;
 			}
 		} else include "sp/home.php";
