@@ -10,6 +10,13 @@
 		<form>
         <div id='success'></div>
           <div class='form-group'>
+          <a href='index.php?p=list'><button type='button' class='btn btn-primary btn-xl' id='sendMessageButton'>Informações</button></a>
+        </div>
+      </form>
+	  
+		<form>
+        <div id='success'></div>
+          <div class='form-group'>
           <a href='index.php?p=cadastro'><button type='button' class='btn btn-primary btn-xl' id='sendMessageButton'>Cadastro Usuário</button></a>
         </div>
       </form>";
@@ -51,6 +58,12 @@
       </form>";
 	  
 	  echo "
+	  <form>
+        <div id='success'></div>
+          <div class='form-group'>
+          <a href='index.php?p=map'><button type='button' class='btn btn-primary btn-xl' id='sendMessageButton'>Ver Mapa</button></a>
+        </div>
+      </form>
       <form>
         <div id='success'></div>
           <div class='form-group'>

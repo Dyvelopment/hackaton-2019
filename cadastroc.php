@@ -78,7 +78,7 @@ if(isset($_POST['cadastrar'])){
       <form>
         <div id="success"></div>
           <div class="form-group">
-          <br><button type="button" class="btn btn-primary btn-xl" id="sendMessageButton" name="cadastrar">Enviar</button>
+          <br><button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton" name="cadastrar">Enviar</button>
         </div>
       </form>
 

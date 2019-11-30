@@ -60,6 +60,8 @@
 	if(isset($_SESSION["login"])){
 		if(isset($_GET["p"])){
 			switch($_GET["p"]){
+				case "map": include "mapa.php"; break;
+				case "list": include "list.php"; break;
 				case "logout": include "logout.php"; break;
 				case "cadastro": include "cadastro.php"; break;
 				case "cadastroc": include "cadastroc.php"; break;

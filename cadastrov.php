@@ -11,7 +11,7 @@ if(isset($_POST['cadastrar'])){
 			die();
 		} else $x=1;
 	} else $x = 0;
-	if($x==1) echo "<script>alert('Veiculo já existente!')</script>";
+	if($x==1) echo "<script>alert('Veiculo já existente ou motorista inexistente!')</script>";
 	?>
   
   
@@ -60,7 +60,7 @@ if(isset($_POST['cadastrar'])){
       <form>
         <div id="success"></div>
           <div class="form-group">
-          <button type="button" class="btn btn-primary btn-xl" id="sendMessageButton" name="cadastrar">Enviar</button>
+          <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton" name="cadastrar">Enviar</button>
         </div>
       </form>
 

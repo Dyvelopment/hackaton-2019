@@ -31,10 +31,10 @@
       -->
 
     <script>
-      var lator = 37.70;
-      var longor = -122.400;
-      var latdes = 37.768;
-      var londes = -122.511;
+      var lator = -27.368169;
+      var longor = -53.397527;
+      var latdes = -27.1919024;
+      var londes = -53.2606527;
 
       function initMap() {
         var directionsRenderer = new google.maps.DirectionsRenderer;

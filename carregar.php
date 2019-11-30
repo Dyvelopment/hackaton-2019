@@ -1,3 +1,17 @@
+<script>
+function carga(){
+	addToTotal();
+	document.getElementsByName('carregar')[0].click();
+}
+</script>
+
+
+
+  <header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+      <!-- Masthead Heading -->
+      <h1 class="masthead-heading text-uppercase mb-0">Registro de Cargas</h1>
+<form method="POST" action=''>
 <?php
 if(getCargo($_SESSION["id"])!="admin" && getCargo($_SESSION["id"])!="gerente"){
 	header("Location: .");
@@ -21,43 +35,11 @@ if(getCargo($_SESSION["id"])!="admin" && getCargo($_SESSION["id"])!="gerente"){
 	}
 	echo "</script>";
 	$i=0;
-	foreach ($data as $row) {
-		$i++;
-		echo $row['nome_pro']." <input name='".$row['id_pro']."' type='number' name='quantity' min='0' max='".$row['qtd_pro']."' value='0'>";
-	}
 	
-	echo "<script> total = 0; i = ".$i.";
-	ls = '';
-	function addToTotal(){
-		for(x = 1; x<=i; x++){
-			total = total + (p[x][2] * document.getElementsByName(x)[0].value);
-			if(document.getElementsByName(x)[0].value > 0) {
-				ls = ls+x+';'+document.getElementsByName(x)[0].value+'|';
-			}
-		}
-		
-		document.getElementsByName('valor')[0].value = total;
-		document.getElementsByName('produtos')[0].value = ls.slice(0, -1);
-	}
-	</script>";
 	}
 ?>
-
-<script>
-function carga(){
-	addToTotal();
-	document.getElementsByName('carregar')[0].click();
-}
-</script>
-<form method="POST" action=''>
 <input type="number" name="valor" hidden required>
 <input type="text" name="produtos" hidden required>
--------------------------------------
-  <header class="masthead bg-primary text-white text-center">
-    <div class="container d-flex align-items-center flex-column">
-      <!-- Masthead Heading -->
-      <h1 class="masthead-heading text-uppercase mb-0">Registro de Cargas</h1>
-
       <form name="sentMessage">
             <div class="control-group">
               <div class="form-group floating-label-form-group controls mb-0 pb-2">
@@ -101,6 +83,28 @@ function carga(){
                 <p class="help-block text-danger"></p>
               </div>
             </div>
+			<?php
+			foreach ($data as $row) {
+		$i++;
+		echo $row['nome_pro']." <input name='".$row['id_pro']."' type='number' name='quantity' min='0' max='".$row['qtd_pro']."' value='0'>";
+	}
+	
+	echo "<script> total = 0; i = ".$i.";
+	ls = '';
+	function addToTotal(){
+		for(x = 1; x<=i; x++){
+			total = total + (p[x][2] * document.getElementsByName(x)[0].value);
+			if(document.getElementsByName(x)[0].value > 0) {
+				ls = ls+x+';'+document.getElementsByName(x)[0].value+'|';
+			}
+		}
+		
+		document.getElementsByName('valor')[0].value = total;
+		document.getElementsByName('produtos')[0].value = ls.slice(0, -1);
+	}
+	</script>";
+			?>
+			<input type="submit" hidden name="carregar">
 			
             <br><br>
             <form>
@@ -119,6 +123,6 @@ function carga(){
   </header>
 
 
-<input type="submit" hidden name="carregar"/>
+
 </form>
 	
