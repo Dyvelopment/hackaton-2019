@@ -32,6 +32,57 @@
 		return $users[0]['cargo'];
 	}
 	
+	function getVeiculoByName($name){
+		$con = db_connect();
+		$sql = "SELECT id FROM veiculo WHERE placa_vei = :placa";
+		$stmt = $con->prepare($sql);
+		$stmt->bindValue(':placa', $name);
+		$stmt->execute();
+		$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		if (count($users) <= 0){
+			return "error";
+			exit;
+		}
+		return $users[0]['id_vei'];
+	}
+	
+	function getMotoristaByName($name){
+		$con = db_connect();
+		$sql = "SELECT id FROM usuario WHERE nome_usu = :nome";
+		$stmt = $con->prepare($sql);
+		$stmt->bindValue(':nome', $name);
+		$stmt->execute();
+		$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		if (count($users) <= 0){
+			return "error";
+			exit;
+		}
+		return $users[0]['id_usuario'];
+	}
+	
+	function cadastroVeiculo($nome, $tamanho, $quantidade, $motorista){
+		$con = db_connect();
+		$sql = "SELECT id_vei FROM produto WHERE placa_vei = :nome";
+		$stmt = $con->prepare($sql);
+		$stmt->bindValue(':nome', $nome);
+		$stmt->execute();
+		$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		if (count($users) == 0){
+		$sql = "INSERT INTO produto(placa_vei, tamanho_vei, qtd_carga_vei, id_usuario) VALUES(:nome, :tamanho, :qtd, :motorista)";
+		$stmt = $con->prepare( $sql );
+		$stmt->bindParam( ':nome', $nome );
+		$stmt->bindParam( ':tamanho', $tamanho );
+		$stmt->bindParam( ':qtd', $quantidade );
+		$two = getMotoristaByName($motorista);
+		if($one=="error" || $two=="error") return "error";
+		$stmt->bindParam( ':motorista', $two);
+		$stmt->execute();
+		return "cadastrado";
+		} else {
+			return "error";
+		}
+	}
+	
 	function cadastroUsuario($user, $pass, $nome, $cargo, $cpf, $cnh, $contato, $endereco){
 		if(trylogin($user, $pass) == "error"){
 		$con = db_connect();
@@ -76,9 +127,9 @@
 		}
 	}
 	
-	function cadastroCarga($local, $distancia, $status, $produto, $valor, $coordenada){
+	function cadastroCarga($local, $distancia, $status, $produto, $valor, $coordenada, $veiculo, $motorista){
 		$con = db_connect();
-		$sql = "INSERT INTO carga(local_carga, distancia_carga, status_carga, prod_carga, valor_carga, cord_destino, cord_carga) VALUES(:local, :distancia, :status, :produto, :valor, :coordenada, :atual)";
+		$sql = "INSERT INTO carga(local_carga, distancia_carga, status_carga, prod_carga, valor_carga, cord_destino, cord_carga, id_vei, id_usu) VALUES(:local, :distancia, :status, :produto, :valor, :coordenada, :atual, :v, :u)";
 		
 		$stmt = $con->prepare( $sql );
 		$stmt->bindParam( ':local', $local );
@@ -88,6 +139,11 @@
 		$stmt->bindParam( ':valor', $valor );
 		$stmt->bindParam( ':coordenada', $coordenada );
 		$stmt->bindParam( ':atual', "" );
+		$one = getVeiculoByName($veiculo);
+		$two = getMotoristaByName($motorista);
+		if($one=="error" || $two=="error") return "error";
+		$stmt->bindParam( ':v', $one);
+		$stmt->bindParam( ':u', $two);
 		
 		$stmt->execute();
 

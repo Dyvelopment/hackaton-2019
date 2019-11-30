@@ -4,7 +4,7 @@ if(getCargo($_SESSION["id"])!="admin" && getCargo($_SESSION["id"])!="gerente"){
 	die();
 }
 	if(isset($_POST['carregar'])){
-			$i = cadastroCarga($_POST["local"], $_POST["distancia"], $_POST["status"], $_POST["produtos"], $_POST["valor"], $_POST["coordenada"]);
+			$i = cadastroCarga($_POST["local"], $_POST["distancia"], $_POST["status"], $_POST["produtos"], $_POST["valor"], $_POST["coordenada"], $_POST["veiculo"], $_POST["motorista"]);
 			if($i != "error"){
 				header("Location: .");
 				die();
@@ -52,14 +52,73 @@ function carga(){
 <form method="POST" action=''>
 <input type="number" name="valor" hidden required>
 <input type="text" name="produtos" hidden required>
-<br>
-Endereço do Local: <br><input type='text' name='local' required><br>
-Coordenada: <br><input type='text' name='coordenada' required><br>
-Distância: <br><input type='number' name='distancia' required><br>
-Status: <br><input type='text' name='status'><br>
+-------------------------------------
+  <header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+      <!-- Masthead Heading -->
+      <h1 class="masthead-heading text-uppercase mb-0">Registro de Cargas</h1>
 
+      <form name="sentMessage">
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              	<br>
+                <input class="form-control" id="name" type="text" required="required" placeholder="Local da Entrega" name='local'>
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              	<br>
+                <input class="form-control" id="name" type="text" required="required" placeholder="Coordenadas do Local" name='coordenada'>
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+			<div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              	<br>
+                <input class="form-control" id="name" type="text" required="required" placeholder="Distância" name='distancia'>
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+			<div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              	<br>
+                <input class="form-control" id="name" type="text" required="required" placeholder="Status" name='status'>
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+			<div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              	<br>
+                <input class="form-control" id="name" type="text" required="required" placeholder="Motorista" name='motorista'>
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+			<div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              	<br>
+                <input class="form-control" id="name" type="text" required="required" placeholder="Veiculo" name='veiculo'>
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+			
+            <br><br>
+            <form>
+      <div id="success"></div>
+        <div class="form-group">
+          <button type="button" class="btn btn-primary btn-xl" id="sendMessageButton" onclick="carga()">Carregar</button>
+        </div>
+      </form>
+	  <form>
+        <div id="success"></div>
+          <div class="form-group">
+          <a href="."><button type="button" class="btn btn-primary btn-xl" id="sendMessageButton">Voltar</button></a>
+        </div>
+      </form>
+    </div>
+  </header>
 
 
 <input type="submit" hidden name="carregar"/>
 </form>
-<button onclick="carga()">Enviar</button>
+	

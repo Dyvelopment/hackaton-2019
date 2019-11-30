@@ -37,8 +37,23 @@
 <body id="page-top">
 
 <head>
-	<link rel="stylesheet" type="text/css" href="css/main.css"/>
 	<meta charset="UTF-8"/>
+	<!-- Navigation -->
+  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger"><img src="img/Logo-Bakof.png" width="30%"></a>
+      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-0 mx-lg-1">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 <?php
 	include "sy/db.php";
 	session_start();
@@ -50,6 +65,7 @@
 				case "cadastroc": include "cadastroc.php"; break;
 				case "cadastrop": include "cadastrop.php"; break;
 				case "carregar": include "carregar.php"; break;
+				case "cadastrov": include "cadastrov.php"; break;
 				default: include "home.php"; break;
 			}
 		} else include "home.php";
